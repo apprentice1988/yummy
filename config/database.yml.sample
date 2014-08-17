@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: postgresql
+  password: 
+  port: 5432
+  encoding: UTF8
+
+development:
+  <<: *default
+  database: yum_development
+test:
+  <<: *default
+  database: yummy_test
+production:
+  <<: *default
+  database: yummy_production
