@@ -25,7 +25,8 @@ gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails"
 gem 'unicorn', group: :production
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+#gem 'capistrano-rails', group: :development
+gem 'capistrano', '~>2.15'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
