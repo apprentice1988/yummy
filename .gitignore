@@ -7,13 +7,12 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
 /config/database.yml
-/config/constants.rb
+/config/initializers/constants.rb
 app/todo.rb
+/config/deploy.rb
+/config/secrets.yml
