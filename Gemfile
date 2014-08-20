@@ -16,6 +16,7 @@ gem 'spring',        group: :development
 gem 'minitest-rails'
 
 gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails"
+gem 'qiniu'
 #gem 'weixin_rails_middleware'
 
 # Use ActiveModel has_secure_password

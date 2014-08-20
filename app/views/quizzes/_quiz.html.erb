@@ -1,0 +1,8 @@
+<div class="eight columns single-quiz">
+	<%= image_tag quiz.picture %>
+	<ul>
+		<% quiz.choices.keys.each do |choice| %>
+			<li><%= choice %></li>
+		<% end %>
+	</ul>
+</div>
