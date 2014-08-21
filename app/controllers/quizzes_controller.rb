@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
 	def index
-		@quiz = Quiz.all
+		@quizzes = Quiz.all
 	end
 end
