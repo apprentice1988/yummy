@@ -1,8 +1,9 @@
-class Weixin::ServerController < Weixin::ApplicationController
-	before_action :authentication
+class Weixin::MessagesController < Weixin::ApplicationController
+	#before_action :authentication
 
-	def test
-		render text: params[:echostr]
+	def create
+		doc = Nokogiri::XML(request.body.read)
+		puts doc
 	end
 
 	private
@@ -13,5 +14,4 @@ class Weixin::ServerController < Weixin::ApplicationController
 		sha = Digest::SHA1.hexdigest(str)
 		sha = params[:signature]
 	end
-
 end

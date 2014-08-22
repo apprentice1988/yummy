@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'quizzes#index'
   namespace :weixin do
-    get "request_authentication" => 'server#test'
+    resources :messages
   end
 
   # Example of regular route:

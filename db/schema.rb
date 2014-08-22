@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820225146) do
+ActiveRecord::Schema.define(version: 20140821224326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 20140820225146) do
     t.string   "picture"
     t.text     "description"
     t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.string   "to_user_name"
+    t.string   "from_user_name"
+    t.datetime "create_time"
+    t.string   "type"
+    t.text     "content"
+    t.string   "msgid"
+    t.string   "picture_url"
+    t.string   "media_id"
+    t.string   "format"
+    t.string   "thumb_media_id"
+    t.decimal  "location_x"
+    t.decimal  "location_y"
+    t.decimal  "scale"
+    t.string   "label"
+    t.string   "title"
+    t.string   "description"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
