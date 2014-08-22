@@ -14,5 +14,4 @@
 /config/database.yml
 /config/initializers/constants.rb
 app/todo.rb
-/config/deploy.rb
 /config/secrets.yml
