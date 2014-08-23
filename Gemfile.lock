@@ -167,7 +167,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   minitest-rails
-  nokogiri
   pg
   qiniu_direct_uploader
   rails (= 4.1.4)

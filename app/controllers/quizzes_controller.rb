@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-	before_filter :http_authenticate
+	before_action :http_authenticate
 	
 	def index
 		@quizzes = Quiz.all

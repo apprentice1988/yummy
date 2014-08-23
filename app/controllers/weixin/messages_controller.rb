@@ -1,17 +1,19 @@
 class Weixin::MessagesController < Weixin::ApplicationController
-	#before_action :authentication
 
-	def create
-		doc = Nokogiri::XML(request.body.read)
-		puts doc
+	def receive
+		if request.post?
+			message = Hash.from_xml request.body.read
+
+		else
+			render text: params[:echostr]
+		end
 	end
 
 	private
 
-	def authentication
-		token = TOKEN
-		str = [params[:timestamp].to_s, token, params[:nonce].to_s].sort.join
-		sha = Digest::SHA1.hexdigest(str)
-		sha = params[:signature]
+	def parse_xml xml
+		type = xml['xml']['MsgType']
+		message = "message_#{type}".camelize.constantize.new(xml)
 	end
+
 end
