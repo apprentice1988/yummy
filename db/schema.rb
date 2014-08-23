@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823000242) do
+ActiveRecord::Schema.define(version: 20140823144205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,25 +22,6 @@ ActiveRecord::Schema.define(version: 20140823000242) do
     t.string   "picture"
     t.text     "description"
     t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "message_responses", force: true do |t|
-    t.string   "type"
-    t.string   "from_user_name"
-    t.string   "to_user_name"
-    t.datetime "create_time"
-    t.text     "content"
-    t.string   "media_id"
-    t.string   "title"
-    t.string   "description"
-    t.string   "music_url"
-    t.string   "hq_music_url"
-    t.string   "thumb_media_id"
-    t.integer  "article_count"
-    t.string   "picture_url"
-    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,11 +46,42 @@ ActiveRecord::Schema.define(version: 20140823000242) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "subscriber_id"
   end
+
+  add_index "messages", ["subscriber_id"], name: "index_messages_on_subscriber_id", using: :btree
 
   create_table "quizzes", force: true do |t|
     t.string   "picture"
     t.hstore   "choices"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "responses", force: true do |t|
+    t.string   "type"
+    t.string   "from_user_name"
+    t.string   "to_user_name"
+    t.datetime "create_time"
+    t.text     "content"
+    t.string   "media_id"
+    t.string   "title"
+    t.string   "description"
+    t.string   "music_url"
+    t.string   "hq_music_url"
+    t.string   "thumb_media_id"
+    t.integer  "articles_count"
+    t.string   "picture_url"
+    t.string   "url"
+    t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "responses", ["message_id"], name: "index_responses_on_message_id", using: :btree
+
+  create_table "subscribers", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,6 +1,6 @@
-class CreateMessageResponses < ActiveRecord::Migration
+class CreateResponses < ActiveRecord::Migration
   def change
-    create_table :message_responses do |t|
+    create_table :responses do |t|
     	t.string :type
     	t.string :from_user_name
     	t.string :to_user_name
@@ -12,9 +12,10 @@ class CreateMessageResponses < ActiveRecord::Migration
     	t.string :music_url
     	t.string :hq_music_url
     	t.string :thumb_media_id
-    	t.integer :article_count
+    	t.integer :articles_count
     	t.string :picture_url
     	t.string :url
+      t.references :message, index: true
 
       t.timestamps
     end
