@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'quizzes#index'
   namespace :weixin do
-    resources :messages, only: [] do 
-      get :test, on: :collection
+    resources :messages, only: [:index] do 
       collection do 
         match 'receive' => 'messages#receive', via: [:get, :post]
       end

@@ -1,7 +1,5 @@
-class QuizzesController < ApplicationController
-	before_action :http_authenticate
-	
+class QuizzesController < ApplicationController	
 	def index
-		@quizzes = Quiz.all
+		@quizzes = Quiz.includes(:response).first(20)
 	end
 end

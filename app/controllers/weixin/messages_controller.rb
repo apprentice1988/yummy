@@ -1,4 +1,9 @@
 class Weixin::MessagesController < Weixin::ApplicationController
+	skip_before_action :http_authenticate, only: :receive
+
+	def index
+		@messages = Message.all
+	end
 
 	def receive
 		if request.post?
@@ -15,8 +20,13 @@ class Weixin::MessagesController < Weixin::ApplicationController
 	def parse_and_return_xml xml
 		type = xml['xml']['MsgType']
 		data = xml['xml']
-		message = "message_#{type}".camelize.constantize.cast(data)
-		message.response.output
+		if type == 'event'
+			event = "event_#{data['Event']}".camelize.constantize.cast(data)
+			event.response.output
+		else
+			message = "message_#{type}".camelize.constantize.cast(data)
+			message.response.output
+		end
 	end
 
 end

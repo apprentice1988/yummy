@@ -1,0 +1,2 @@
+class EventUnsubscribe < Event
+end

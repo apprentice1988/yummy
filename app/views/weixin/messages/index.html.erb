@@ -1,0 +1,9 @@
+<ul>
+	<% @messages.each do |message| %>
+		<li>
+			<p><%= message.subscriber.name %>: <%= message.content %></p>
+			<p><%= message.response.content %></p>
+		</li>
+	<% end %>
+</ul>
+	

@@ -1,5 +1,4 @@
 class MessageText < Message
-  after_create :create_response
 	# <xml>
   # <ToUserName><![CDATA[及子龙]]></ToUserName>
   # <FromUserName><![CDATA[胖子]]></FromUserName> 
