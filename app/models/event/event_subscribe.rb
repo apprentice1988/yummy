@@ -1,5 +1,5 @@
 class EventSubscribe < Event
-	def cast(data) << self
+	def self.cast(data)
 		self.create(
 			to_user_name: data['ToUserName'],
 			from_user_name: data['FromUserName'],

@@ -1,4 +1,4 @@
-module build_response
+module BuildResponse
 	extend ActiveSupport::Concern
 	
 end
