@@ -16,10 +16,8 @@ gem 'dalli'
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
-gem 'spring',        group: :development
 gem 'minitest-rails'
-gem 'qiniu_direct_uploader'
-
+gem 'qiniu'
  
 # gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails"
 #gem 'weixin_rails_middleware'
@@ -27,8 +25,18 @@ gem 'qiniu_direct_uploader'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+group :development do 
+	gem 'better_errors'
+  gem 'binding_of_caller'
+	gem 'spring'
+end
+
+group :production do
+	gem 'rails_12factor'
+	gem 'unicorn'
+end
+
 # Use unicorn as the app server
-gem 'unicorn', group: :production
 
 # Use Capistrano for deployment
 #gem 'capistrano-rails', group: :development

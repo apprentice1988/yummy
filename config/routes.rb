@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'quizzes#index'
+  
+  resources :quizzes do 
+    get :uptoken, on: :collection
+  end
+
   namespace :weixin do
     resources :messages, only: [:index] do 
       collection do 
