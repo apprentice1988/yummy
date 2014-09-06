@@ -1,5 +1,5 @@
 class Weixin::ApplicationController < ApplicationController
-	skip_before_filter  :verify_authenticity_token
+	skip_before_filter  :http_authenticate
 	
 	TOKEN = '1123'
 	before_action :authentication
