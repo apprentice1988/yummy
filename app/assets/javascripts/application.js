@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require modernizr
 //= require turbolinks
-//= require_tree .
+//= require plupload.min
+//= require qiniu.min
+//= require_directory ./pages

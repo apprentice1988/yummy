@@ -18,6 +18,7 @@ gem 'dalli'
 
 gem 'minitest-rails'
 gem 'qiniu'
+gem 'simple_form'
  
 # gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails"
 #gem 'weixin_rails_middleware'

@@ -1,1 +1,13 @@
-<%= link_to "上传图片", '#', id: 'shangchuan' %>
+<%= simple_form_for @quiz, html: { class: 'quiz_form' }, remote: true do |f| %>
+  <%= f.hidden_field :picture %>
+  <ul>
+    <% 4.times do |i| %>
+      <li>
+        <%= text_field_tag "quiz_choices_#{i}", nil, placeholder: '请输入选项内容' %>
+        <%= check_box_tag "quiz_choices_#{i}", '正确答案' %>
+      </li>
+    <% end %>
+  </ul>
+  <%= f.input :level, collection: 1..5 %>
+  <%= f.submit "提交" %>
+<% end %>
