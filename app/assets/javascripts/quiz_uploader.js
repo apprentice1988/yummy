@@ -10,10 +10,10 @@ var uploader = Qiniu.uploader({
     // uptoken : '<Your upload token>', //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
     // unique_names: true, // 默认 false，key为文件名。若开启该选项，SDK会为每个文件自动生成key（文件名）
     // save_key: true,   // 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK在前端将不对key进行任何处理
-    domain: 'http://upload.qiniu.com',   //bucket 域名，下载资源时用到，**必需**
+    domain: 'http://houzi.qiniudn.com',   //bucket 域名，下载资源时用到，**必需**
     container: 'container',           //上传区域DOM ID，默认是browser_button的父元素，
     max_file_size: '5mb',           //最大文件体积限制
-    // flash_swf_url: 'js/plupload/Moxie.swf',  //引入flash,相对路径
+    flash_swf_url: 'js/plupload/Moxie.swf',  //引入flash,相对路径
     max_retries: 3,                   //上传失败最大重试次数
     dragdrop: true,                   //开启可拖曳上传
     drop_element: 'container',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
@@ -24,7 +24,7 @@ var uploader = Qiniu.uploader({
     //    'time' : function(up,file) {
     //        var time = (new Date()).getTime();
               // do something with 'time'
-    //        return time;
+    //        return time;d
     //    },
     //    'size' : function(up,file) {
     //        var size = file.size;
@@ -45,6 +45,11 @@ var uploader = Qiniu.uploader({
                // 每个文件上传时,处理相关的事情
         },
         'FileUploaded': function(up, file, info) {
+          console.log(up);
+          console.log('=================');
+          console.log(file);
+          console.log('=================');
+          console.log(info);
                // 每个文件上传成功后,处理相关的事情
                // 其中 info 是文件上传成功后，服务端返回的json，形式如
                // {
@@ -66,10 +71,9 @@ var uploader = Qiniu.uploader({
         'Key': function(up, file) {
             // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
             // 该配置必须要在 unique_names: false , save_key: false 时才生效
-
-            var key = "";
+            var key = Date.now().toString();
             // do something with key here
-            return key
+            return key;
         }
     }
 });
