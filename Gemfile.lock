@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/skinnyworm/wechat-rails
-  revision: b7acbc05aa5caec68278339c21f15a56406fe427
-  specs:
-    wechat-rails (0.1.1)
-      nokogiri (>= 1.6.0)
-      rails (>= 3.2.14)
-      rest-client
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,6 +42,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
+    dalli (2.7.2)
     erubis (2.7.0)
     execjs (2.2.1)
     highline (1.6.21)
@@ -70,8 +62,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcached (1.8.0)
     mime-types (1.25.1)
-    mini_portile (0.6.0)
     minitest (5.4.0)
     minitest-rails (2.0.1)
       minitest (>= 5.3.3, < 6.0)
@@ -85,8 +77,6 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     netrc (0.7.7)
-    nokogiri (1.6.3.1)
-      mini_portile (= 0.6.0)
     pg (0.17.1)
     polyglot (0.3.5)
     qiniu-rs (3.4.10)
@@ -164,8 +154,10 @@ PLATFORMS
 DEPENDENCIES
   capistrano (~> 2.15)
   coffee-rails (~> 4.0.0)
+  dalli
   jbuilder (~> 2.0)
   jquery-rails
+  memcached
   minitest-rails
   pg
   qiniu_direct_uploader
@@ -175,4 +167,3 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
-  wechat-rails!

@@ -9,15 +9,19 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'memcached'
+gem 'dalli'
+
 # gem 'nokogiri'
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 gem 'minitest-rails'
-
-gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails"
 gem 'qiniu_direct_uploader'
+
+ 
+# gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails"
 #gem 'weixin_rails_middleware'
 
 # Use ActiveModel has_secure_password

@@ -1,0 +1,13 @@
+common: &common
+  food:
+    app_id: wx003231764af46e05
+    app_secret: 4abf8ce55e27eff7f5b08789258aabc9
+
+development:
+  <<: *common
+
+test:
+  <<: *common
+
+production:
+  <<: *common
