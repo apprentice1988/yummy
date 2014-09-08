@@ -1,5 +1,5 @@
-$(".container").append("<%= j render 'new' %>");
-$("#quiz_new_button").toggle();
+//= require plupload.min
+//= require qiniu.min
 
 var uploader = Qiniu.uploader({
   runtimes: 'html5,flash,html4',    //上传模式,依次退化
@@ -45,10 +45,11 @@ var uploader = Qiniu.uploader({
              // 每个文件上传时,处理相关的事情
       },
       'FileUploaded': function(up, file, info) {
-      	console.log(info);
-      	var name = info.key;
-      	console.log("#############"+name);
+      	var name = $.parseJSON(info).key;
+        var url = "http://houzi.qiniudn.com/" + name;
       	$("#quiz_picture").attr('value', name);
+        $("#quiz_pic_upload_button").remove();
+        $("#quiz_picture_section").append("<img src='" + url + "?imageView2/1/w/300/h/200'>");
       	$("#new_quiz").show();
       	// 每个文件上传成功后,处理相关的事情
       	// 其中 info 是文件上传成功后，服务端返回的json，形式如

@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require modernizr
 //= require turbolinks
 //= require plupload.min
 //= require qiniu.min
 //= require_directory ./pages
+
+$(function(){ $(document).foundation(); });

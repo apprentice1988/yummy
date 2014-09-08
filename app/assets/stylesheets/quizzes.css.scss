@@ -1,4 +1,35 @@
+@import "common";
 #quiz_pic_upload_button {}
 .quiz_form {
 	display: none;
+}
+
+.single-quiz {
+	position: relative;
+	.actions {
+		padding-left: 0.80rem;
+		position: absolute;
+		background-color: black;
+		width: 100%;
+		text-align: right;
+		right: 0.1rem;
+		opacity: 0.6;
+		display: none;
+	}
+	border: 1px solid $black;
+	ul {
+		padding-left: 0.80rem;
+		li {
+			&.quiz_choice_correct {
+				color: $red;
+			}
+			font-size: 0.75rem;
+			padding: 0;
+		}
+	}
+	&:hover {
+		.actions {
+			display: block;
+		}
+	}
 }

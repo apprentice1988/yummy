@@ -19,6 +19,9 @@ gem 'dalli'
 gem 'minitest-rails'
 gem 'qiniu'
 gem 'simple_form'
+gem 'foundation-rails'
+gem 'whenever'
+gem 'font-awesome-sass'
  
 # gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails"
 #gem 'weixin_rails_middleware'

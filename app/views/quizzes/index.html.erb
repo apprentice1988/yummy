@@ -1,7 +1,9 @@
-<div class="container" id='container'>
-	<h1>Quizzes</h1>
+<ul class="breadcrumbs">
+  <li><%= link_to "测试题", quizzes_path %></li>
+</ul>
+<%= link_to "创建题目", new_quiz_path, id: "quiz_new_button", class: 'button tiny' %>
+<ul class="small-block-grid-5">
 	<% @quizzes.each do |quiz| %>
-		<%= render 'quiz', quiz: quiz %>
-	<% end %>
-	<%= link_to "创建题目", new_quiz_path, remote: true, id: "quiz_new_button" %>
-</div>
+		<li><%= render 'quiz', quiz: quiz %></li>
+	<% end %>	
+</ul>

@@ -1,8 +1,16 @@
-<div class="eight columns single-quiz">
-	<%= image_tag quiz.picture %>
-	<ul>
+<div class='single-quiz' id = "<%= dom_id(quiz) %>">
+	<div class="actions">
+		<%= link_to edit_quiz_path(quiz) do %>
+			<i class="fa fa-pencil-square-o"></i>
+		<% end %>
+		<%= link_to quiz_path(quiz), method: :delete, data: { confirm: "你确定删除这道测试题吗？"} do %>
+			<i class="fa fa-times"></i>
+		<% end %>
+	</div>
+	<%= image_tag quiz.pic_url %>
+	<ul class='small-block-grid-2'>
 		<% quiz.choices.keys.each do |choice| %>
-			<li><%= choice %></li>
+			<li class="<%= choice_correct_class(quiz.choices[choice]) %>"><%= choice %></li>
 		<% end %>
 	</ul>
 </div>

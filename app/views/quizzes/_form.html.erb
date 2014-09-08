@@ -1,13 +1,34 @@
-<%= simple_form_for @quiz, html: { class: 'quiz_form' }, remote: true do |f| %>
+<%= simple_form_for @quiz, html: { class: 'quiz_form' } do |f| %>
   <%= f.hidden_field :picture %>
-  <ul>
-    <% 4.times do |i| %>
-      <li>
-        <%= text_field_tag "quiz_choices_#{i}", nil, placeholder: '请输入选项内容' %>
-        <%= check_box_tag "quiz_choices_#{i}", '正确答案' %>
-      </li>
-    <% end %>
-  </ul>
-  <%= f.input :level, collection: 1..5 %>
-  <%= f.submit "提交" %>
+  <% 2.times do |i| %>
+    <ul class="small-block-grid-2">
+      <% 2.times do |index| %>
+        <li>
+          <div class="row">
+            <div class="small-8 columns">
+              <%= text_field_tag "quiz_choices_#{2*i + index}", nil, placeholder: '请输入选项内容' %>
+            </div>
+            <div class="small-4 columns">
+              <div class="row">
+                <div class="small-2 columns">
+                  <%= check_box_tag "quiz_choices_correct_#{2*i + index}", '1', false, id: "quiz_choices_correct_#{2*i + index}" %>
+                </div>
+                <div class="small-10 columns">
+                  <label for="quiz_choices_correct_#{2*i + index}" class: 'left inline'>正确</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="row">
+    <div class="small-6 columns">
+      <%= f.input :level, label: '难度', collection: 1..5, include_blank: false %>
+    </div>
+    <div class="small-6 columns">
+      <%= f.submit '提交', class: 'button tiny' %>
+    </div>
+  </div>
 <% end %>
